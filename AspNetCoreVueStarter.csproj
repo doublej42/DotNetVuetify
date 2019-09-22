@@ -7,15 +7,15 @@
     <IsPackable>false</IsPackable>
     <SpaRoot>ClientApp\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
-    <Authors>Software Ateliers</Authors>
-    <Company>Software Ateliers</Company>
-    <Description>ASP.NET Core + Vue.js starter project</Description>
-    <Copyright>MIT 2019 Software Ateliers</Copyright>
+    <Authors>Jeff Jacob</Authors>
+    <Company>GameTech</Company>
+    <Description>ASP.NET Core + Vue.js + Vuetify 2</Description>
+    <Copyright>MIT 2019 Jeff Jacob</Copyright>
     <AssemblyName>AspNetCoreVueStarter</AssemblyName>
     <RootNamespace>AspNetCoreVueStarter</RootNamespace>
-    <Version>1.0.7</Version>
-    <AssemblyVersion>1.0.7.0</AssemblyVersion>
-    <FileVersion>1.0.7.0</FileVersion>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
