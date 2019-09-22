@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VueCliMiddleware;
 
-namespace AspNetCoreVueStarter
+namespace DotNetVuetify
 {
     public class Startup
     {

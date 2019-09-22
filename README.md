@@ -1,6 +1,11 @@
 ﻿# ASP.NET Core Vue Starter
 
-The repository contains an ASP.&#8203;NET Core + Vue.js starter template. The template is created by Vue CLI 3.0 with a new plugin based architecture allowing developers to interactively scaffold a new project with just a one command.
+The repository contains an ASP.&#8203;NET Core + Vue.js + Vuetify 2 starter template. 
+
+
+This template was base of https://github.com/SoftwareAteliers/asp-net-core-vue-starter and updated by DoubleJ42
+
+The template is created by Vue CLI 3.0 with a new plugin based architecture allowing developers to interactively scaffold a new project with just a one command.
 
 Original article how to create the starter template is available [here](https://medium.com/software-ateliers/asp-net-core-vue-template-with-custom-configuration-using-cli-3-0-8288e18ae80b).
 
@@ -41,9 +46,8 @@ Original article how to create the starter template is available [here](https://
 
 ## Prerequisites
 
-* [.NET Core](https://www.microsoft.com/net/download/windows)
+* [.NET Core 2.2 SDK](https://www.microsoft.com/net/download/windows)
 * [NodeJS](https://nodejs.org/) >= 8.9
-* [Vue CLI](https://cli.vuejs.org/) >= 3.0
 * Your favourite editor (I prefer [VS Code](https://code.visualstudio.com/)), or VS 2017/19
 
 ---
@@ -54,13 +58,13 @@ There are two ways how to set up the project: one for people who want to create 
 
 ## Clone the starter with default configuration
 
-* Clone this repository `git clone https://github.com/SoftwareAteliers/asp-net-core-vue-starter`
+* Clone this repository `git clone https://github.com/doublej42/DotNetVuetify`
 
 or you can use .NET Core CLI templates:
 
-* Install the template from NuGet repository: `dotnet new -i SoftwareAteliers.AspNetCoreVueStarter`
+* Install the template from NuGet repository: `dotnet new -i DotNetVuetify`
 
-* Initialize the project: `dotnet new vue -o MyProject`
+* Initialize the project: `dotnet new vuetify -o MyProject`
 
 ## Scaffold Vue.js app with custom configuration
 
@@ -110,15 +114,9 @@ Want to file a bug, contribute some code, or improve documentation? Excellent! P
 Special thanks to everyone who helped and contributed to this project!
 
 * [@jdebarochez](https://github.com/jdebarochez)
-
+* [@SoftwareAteliers](https://github.com/SoftwareAteliers/asp-net-core-vue-starter)
 ---
 
 ## License
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/content/LICENSE)
-
-Copyright &copy; 2018 - 2019 [Software Ateliers](https://github.com/SoftwareAteliers)
-
-## Where to find me
-
-Medium: [Software Ateliers](https://medium.com/software-ateliers) | Twitter: [@SAteliers](https://twitter.com/SAteliers)

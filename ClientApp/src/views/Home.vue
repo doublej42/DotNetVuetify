@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-layout column align-center>
       <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5">
-      <HelloWorld quote="Welcome to Your ASP.NET Core + Vue.js + TypeScript App" author="brought to you by Software Ateliers" />
+      <HelloWorld quote="Welcome to Your ASP.NET Core + Vue.js + Vuetify 2 + TypeScript App" author="brought to you by Software Ateliers & Jeff Jacob" />
     </v-layout>
     <v-slide-y-transition mode="out-in">
       <v-layout column>        

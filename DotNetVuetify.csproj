@@ -11,8 +11,8 @@
     <Company>GameTech</Company>
     <Description>ASP.NET Core + Vue.js + Vuetify 2</Description>
     <Copyright>MIT 2019 Jeff Jacob</Copyright>
-    <AssemblyName>AspNetCoreVueStarter</AssemblyName>
-    <RootNamespace>AspNetCoreVueStarter</RootNamespace>
+    <AssemblyName>DotNetVuetify</AssemblyName>
+    <RootNamespace>DotNetVuetify</RootNamespace>
     <Version>1.0.0</Version>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>

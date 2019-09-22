@@ -2,12 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>DotNetVuetify</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>
-      ASP.NET Core + Vue.js starter project
+      ASP.NET Core + Vue.js + Vuetify 2
     </description>
     <authors>Jeff Jacob</authors>
     <projectUrl>https://github.com/doublej42/DotNetVuetify</projectUrl>
+    <repository type="git" url="https://github.com/doublej42/DotNetVuetify" />
     <license type="expression">MIT</license>
     <packageTypes>
       <packageType name="Template" />

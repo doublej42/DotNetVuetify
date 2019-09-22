@@ -5,9 +5,9 @@
   "identity": "DotNetVuetify",
   "name": "ASP.NET Core with Vue.js Vuetify",
   "shortName": "vuetify",
-  "sourceName": "AspNetCoreVueStarter",
+  "sourceName": "DotNetVuetify",
   "preferNameDirectory": false,
-  "primaryOutputs": [{ "path": "AspNetCoreVueStarter.csproj" }],
+  "primaryOutputs": [{ "path": "DotNetVuetify.csproj" }],
   "sources": [
     {
       "source": "./",
