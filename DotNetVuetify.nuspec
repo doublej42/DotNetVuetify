@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>DotNetVuetify</id>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <description>
       ASP.NET Core + Vue.js + Vuetify 2
     </description>
@@ -17,7 +17,7 @@
   <files>
     <file
       src="**"
-      exclude="**/node_modules/**;**/bin/**;**/obj/**;**/.vs/**;**/.vscode/**;**/ClientApp/dist/**;**/wwwroot/dist/**;content/Directory.Build.*;**/.git/**"
+      exclude="**/node_modules/**;**/bin/**;**/obj/**;**/.vs/**;**/.vscode/**;**/clientapp/dist/**;**/wwwroot/dist/**;content/Directory.Build.*;**/.git/**;**.nupkg"
       target="Content" />
   </files>
 </package>

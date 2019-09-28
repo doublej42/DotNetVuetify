@@ -70,12 +70,12 @@ or you can use .NET Core CLI templates:
 
 If you prefer to overwrite default Vue client app with custom settings, take the following steps:
 
-* **Remove all the contents** of the folder /ClientApp
+* **Remove all the contents** of the folder /clientapp
 * Create a new Vue project by using Vue CLI: `vue create client-app` OR by using CLI graphical interface running `vue ui`
 
-> Unfortunately Vue CLI does not allow us to set a project name by C# standards using Upper Camel Case (Pascal Case) naming convention, so let's initiate app inside of client-app folder and then move the content to ClientApp.
+> Unfortunately Vue CLI does not allow us to set a project name by C# standards using Upper Camel Case (Pascal Case) naming convention, so let's initiate app inside of client-app folder and then move the content to clientapp.
 
-* **Move all the contents from the new folder /client-app to /ClientApp.**
+* **Move all the contents from the new folder /client-app to /clientapp.**
 
 Now application is ready to run.
 

@@ -24,7 +24,7 @@ namespace DotNetVuetify
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp/dist";
+                configuration.RootPath = "clientapp/dist";
             });
         }
 
@@ -54,7 +54,7 @@ namespace DotNetVuetify
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "ClientApp";
+                spa.Options.SourcePath = "clientapp";
 
                 if (env.IsDevelopment())
                 {
