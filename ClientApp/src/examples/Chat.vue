@@ -1,12 +1,14 @@
 <template>
   <v-card class="elevation-3 mt-3 pa-3">
-    <v-card-title class="title justify-center">TITLE</v-card-title>
+    <v-card-title class="title justify-center">{{status}}</v-card-title>
     <v-card-text>
-        <v-text-field label="Room Name" v-model="roomName">
-          <template v-slot:append-outer>
-            <v-btn :disabled="roomName.length < 3" color="primary" @click="joinChannel">Join</v-btn>
-            </template>
-        </v-text-field>
+      <v-text-field label="Your Name" v-model="sender"></v-text-field>
+      <v-text-field label="Room Name" v-model="roomName">
+        <template v-slot:append-outer>
+          <v-btn :disabled="roomName.length < 3" color="primary" @click="joinChannel">Join</v-btn>
+        </template>
+      </v-text-field>
+
       <v-list>
         <v-list-item v-for="message in messages" :key="message.key">
           <v-list-item-avatar>J</v-list-item-avatar>
@@ -17,40 +19,81 @@
         </v-list-item>
       </v-list>
     </v-card-text>
+    <v-text-field label="Message" v-model="message">
+      <template v-slot:append-outer>
+        <v-btn :disabled="roomName.length == 0" color="primary" @click="sendMessage" fab>></v-btn>
+      </template>
+    </v-text-field>
   </v-card>
 </template>
 
 <script>
 //uncomment for vuex state management
 //import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   //Your local variables for use in the component
   data() {
     return {
       roomName: "",
-      myMessage: "",
+      sender: "",
+      message: "",
       messages: [],
-      seqId: null
+      status: "Not In Channel"
     };
   },
   //calculated values, auto reactive
   //functionName: function(){}
   //functionName: { get: function() {}, set: function(value){}}
-  computed: {},
+  computed: {
+    hashedRoom: function() {
+      return this.hashCode(this.roomName);
+    }
+  },
   //perform actions, not reactive to variables used
   //functionName: function(arg1,arg2){}
   methods: {
     joinChannel: function() {
+      this.status = "Joined: " + this.roomName;
       this.fetchData();
     },
     fetchData: function() {
-      let result = axios.get('https://httprelay.io/mcast/z54unhji8',{
-        withCredentials: true
-      }).then(response => {
-        console.log('fetchData',response)
-      })
+      if (this.status != "Joined: " + this.roomName) {
+        //the roomName doesn't match so dont' fetch untill they click join again
+        this.status = "Not In Channel";
+        return;
+      }
+      axios
+        .get("https://httprelay.io/mcast/vueChat" + this.hashedRoom, {
+          withCredentials: true
+        })
+        .then(response => {
+          console.log("fetchData", response.data);
+          this.fetchData();
+        });
+    },
+    sendMessage: function() {
+      if (this.status != "Joined: " + this.roomName) {
+        //the roomName doesn't match so dont' fetch untill they click join again
+        this.status = "Not In Channel";
+        return;
+      }
+      axios.post(
+        "https://httprelay.io/mcast/vueChat" + this.hashedRoom,
+        {
+          sender: this.sender,
+          message: this.message
+        },
+        {
+          withCredentials: true
+        }
+      );
+    },
+    hashCode: function(s) {
+      for (var i = 0, h = 0; i < s.length; i++)
+        h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
+      return h;
     }
   },
   /*  data passed in from external 
