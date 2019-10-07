@@ -85,7 +85,6 @@ export default {
   //functionName: function(arg1,arg2){}
   methods: {
     joinChannel: function() {
-      console.log('joinChannel',this.roomName,this.sender)
       if (this.roomName.length >= 3 || this.sender.length >= 3) {
         this.status = "Joined: " + this.roomName;
         this.fetchData();
@@ -105,7 +104,6 @@ export default {
           }
         })
         .then(response => {
-          console.log("fetchData", response.data);
           //add the new message to the list of messages. Everything will react to this.
           this.messages.push(response.data);
           //start another pull looking for more data
@@ -113,7 +111,6 @@ export default {
         });
     },
     sendMessage: function() {
-      console.log("sending message: " + this.message);
       if (this.status != "Joined: " + this.roomName) {
         //the roomName doesn't match so dont' fetch untill they click join again
         this.status = "Join a Channel";
