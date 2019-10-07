@@ -31,10 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="clientapp\tsconfig.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="README.md" />
   </ItemGroup>
 
