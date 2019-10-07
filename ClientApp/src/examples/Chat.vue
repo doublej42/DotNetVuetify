@@ -20,7 +20,7 @@
       <v-list>
         <v-list-item v-for="message in messages" :key="message.key">
           <v-list-item-avatar>
-            <v-avatar :color="colors[hashCode(message.sender)%6]" size="36">
+            <v-avatar :color="colors[hashCode(message.sender)%colors.length]" size="36">
               <span class="white--text headline">{{message.sender.substring(0,1)}}</span>
             </v-avatar>
           </v-list-item-avatar>
@@ -134,7 +134,7 @@ export default {
     hashCode: function(s) {
       for (var i = 0, h = 0; i < s.length; i++)
         h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
-      return h;
+      return Math.abs(h);
     }
   },
   /*  data passed in from external 
