@@ -2,26 +2,43 @@
   <v-card class="elevation-3 mt-3 pa-3">
     <v-card-title class="title justify-center">{{status}}</v-card-title>
     <v-card-text>
-      <v-text-field label="Your Name" v-model="sender"></v-text-field>
-      <v-text-field label="Room Name" v-model="roomName">
+      <v-text-field label="Your Name" v-model="sender" v-if="status == 'Join a Channel'"></v-text-field>
+      <v-text-field
+        label="Room Name"
+        v-model="roomName"
+        v-if="status == 'Join a Channel'"
+        v-on:keyup.enter="joinChannel"
+      >
         <template v-slot:append-outer>
-          <v-btn :disabled="roomName.length < 3" color="primary" @click="joinChannel">Join</v-btn>
+          <v-btn
+            :disabled="roomName.length < 3 || sender.length < 3"
+            color="primary"
+            @click="joinChannel"
+          >Join</v-btn>
         </template>
       </v-text-field>
-
       <v-list>
         <v-list-item v-for="message in messages" :key="message.key">
-          <v-list-item-avatar>J</v-list-item-avatar>
+          <v-list-item-avatar>
+            <v-avatar :color="colors[hashCode(message.sender)%6]" size="36">
+              <span class="white--text headline">{{message.sender.substring(0,1)}}</span>
+            </v-avatar>
+          </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title v-text="message.sender"></v-list-item-title>
-            <v-list-item-subtitle v-text="message.text"></v-list-item-subtitle>
+            <v-list-item-subtitle v-text="message.message"></v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-card-text>
-    <v-text-field label="Message" v-model="message">
+    <v-text-field
+      label="Message"
+      v-model="message"
+      v-on:keyup.enter="sendMessage"
+      v-if="status != 'Join a Channel'"
+    >
       <template v-slot:append-outer>
-        <v-btn :disabled="roomName.length == 0" color="primary" @click="sendMessage" fab>></v-btn>
+        <v-btn :disabled="roomName.length == 0" color="primary" @click="sendMessage" fab small>></v-btn>
       </template>
     </v-text-field>
   </v-card>
@@ -39,8 +56,21 @@ export default {
       roomName: "",
       sender: "",
       message: "",
+      colors: ["red", "purple", "indigo", "blue", "cyan", "teal", "green"],
       messages: [],
-      status: "Not In Channel"
+      status: "Join a Channel"
+      // messages:
+      // [
+      // {
+      //     sender: "Jeff",
+      //     message: "Short message"
+      //   },
+      //   {
+      //     sender: "Bob",
+      //     message: "This is a much longer message used to test layout of the the longer messages"
+      //   }
+      // ],
+      // status: "Sample Output"
     };
   },
   //calculated values, auto reactive
@@ -55,28 +85,38 @@ export default {
   //functionName: function(arg1,arg2){}
   methods: {
     joinChannel: function() {
-      this.status = "Joined: " + this.roomName;
-      this.fetchData();
+      console.log('joinChannel',this.roomName,this.sender)
+      if (this.roomName.length >= 3 || this.sender.length >= 3) {
+        this.status = "Joined: " + this.roomName;
+        this.fetchData();
+      }
     },
     fetchData: function() {
       if (this.status != "Joined: " + this.roomName) {
         //the roomName doesn't match so dont' fetch untill they click join again
-        this.status = "Not In Channel";
+        this.status = "Join a Channel";
         return;
       }
       axios
         .get("https://httprelay.io/mcast/vueChat" + this.hashedRoom, {
-          withCredentials: true
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
         })
         .then(response => {
           console.log("fetchData", response.data);
+          //add the new message to the list of messages. Everything will react to this.
+          this.messages.push(response.data);
+          //start another pull looking for more data
           this.fetchData();
         });
     },
     sendMessage: function() {
+      console.log("sending message: " + this.message);
       if (this.status != "Joined: " + this.roomName) {
         //the roomName doesn't match so dont' fetch untill they click join again
-        this.status = "Not In Channel";
+        this.status = "Join a Channel";
         return;
       }
       axios.post(
@@ -86,9 +126,13 @@ export default {
           message: this.message
         },
         {
-          withCredentials: true
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
         }
       );
+      this.message = "";
     },
     hashCode: function(s) {
       for (var i = 0, h = 0; i < s.length; i++)
