@@ -28,7 +28,7 @@ Original article how to create the starter template is available [here](https://
 
 ## Used Technology Stack
 
-**ASP.NET Core 2.2:**
+**ASP.NET Core 3.0:**
 
 * Web.API
 * JavaScript Services middleware to integrate with client app
@@ -46,7 +46,7 @@ Original article how to create the starter template is available [here](https://
 
 ## Prerequisites
 
-* [.NET Core 2.2 SDK](https://www.microsoft.com/net/download/windows)
+* [.NET Core 3.0 SDK](https://www.microsoft.com/net/download/windows)
 * [NodeJS](https://nodejs.org/) >= 8.9
 * Your favourite editor (I prefer [VS Code](https://code.visualstudio.com/)), or VS 2017/19
 
