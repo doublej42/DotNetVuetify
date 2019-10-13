@@ -59,7 +59,8 @@ export default {
       colors: ["red", "purple", "indigo", "blue", "cyan", "teal", "green"],
       messages: [],
       status: "Join a Channel"
-      // messages:
+     // Some sample messages
+     // messages:
       // [
       // {
       //     sender: "Jeff",

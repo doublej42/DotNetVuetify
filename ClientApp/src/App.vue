@@ -11,14 +11,24 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item to="about">
+        <v-list-item to="chat">
           <v-list-item-action>
-            <v-icon>mdi-information-outline</v-icon>
+            <v-icon>mdi-chat</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>About</v-list-item-title>
+            <v-list-item-title>Chat</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+
+        <v-list-item to="fetchdata">
+          <v-list-item-action>
+            <v-icon>mdi-database</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Fetch Data</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
       </v-list>
     </v-navigation-drawer>
 
