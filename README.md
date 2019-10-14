@@ -48,7 +48,7 @@ Original article how to create the starter template is available [here](https://
 
 * [.NET Core 3.0 SDK](https://www.microsoft.com/net/download/windows)
 * [NodeJS](https://nodejs.org/) >= 8.9
-* Your favourite editor (I prefer [VS Code](https://code.visualstudio.com/)), or VS 2017/19
+* Your favourite editor like ([VS Code](https://code.visualstudio.com/))  or Visual Studio 2017/19
 
 ---
 

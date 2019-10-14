@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>DotNetVuetify</id>
-    <version>1.0.4</version>
+    <version>1.0.6</version>
     <description>
       ASP.NET Core + Vue.js + Vuetify 2
     </description>
@@ -13,11 +13,13 @@
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
+    <icon>Vuetify.png</icon>
   </metadata>
   <files>
     <file
       src="**"
       exclude="**/node_modules/**;**/bin/**;**/obj/**;**/.vs/**;**/.vscode/**;**/clientapp/dist/**;**/wwwroot/dist/**;content/Directory.Build.*;**/.git/**;**.nupkg"
       target="Content" />
+      <file src="Vuetify.png" target="" />
   </files>
 </package>

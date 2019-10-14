@@ -2,12 +2,7 @@
   <v-card class="elevation-3 mt-3 pa-3">
     <v-card-title class="title justify-center">Remote Data</v-card-title>
     <v-card-text>
-      <p>This data comes from the SampleDataController</p>
-      <p class="d-flex d-sm-none">XS</p>
-      <p class="d-none d-sm-flex d-md-none">SM</p>
-      <p class="d-none d-md-flex d-lg-none">MD</p>
-      <p class="d-none d-lg-flex d-xl-none">LG</p>
-      <p class="d-none d-xl-flex">XL</p>
+      <h2>This data comes from the SampleDataController</h2>
       <v-row>
         <v-col :md="8" :sm="12">
           <v-data-table
@@ -33,6 +28,12 @@
           </p>
         </v-col>
       </v-row>
+      <h3>Current Screen Size:</h3>
+      <p class="d-flex d-sm-none">XS</p>
+      <p class="d-none d-sm-flex d-md-none">SM</p>
+      <p class="d-none d-md-flex d-lg-none">MD</p>
+      <p class="d-none d-lg-flex d-xl-none">LG</p>
+      <p class="d-none d-xl-flex">XL</p>
     </v-card-text>
     <v-card-actions>
       <v-btn @click="fetchWeatherData">Fetch Sample Data</v-btn>
