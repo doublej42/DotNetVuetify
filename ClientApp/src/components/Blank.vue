@@ -29,7 +29,7 @@ export default {
   }
   */
   props: {},
-  /* other components need
+  /* other components
     you need to import the component first
     'component-a': ComponentA,
   */
