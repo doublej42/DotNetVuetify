@@ -64,7 +64,7 @@ or you can use .NET Core CLI templates:
 
 * Install the template from NuGet repository: `dotnet new -i DotNetVuetify`
 
-* Initialize the project: `dotnet new vuetify -o MyProject`
+* Initialize the project: `dotnet new DotNetVuetify -o MyProject`
 
 ## Scaffold Vue.js app with custom configuration
 

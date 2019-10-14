@@ -2,9 +2,13 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "Jeff Jacob",
   "classifications": ["Web", "SPA", "Vue.js"],
+  "tags": {
+    "language": "C#",
+    "type": "item"
+  },
   "identity": "DotNetVuetify",
   "name": "ASP.NET Core with Vue.js Vuetify",
-  "shortName": "vuetify",
+  "shortName": "DotNetVuetify",
   "sourceName": "DotNetVuetify",
   "preferNameDirectory": false,
   "primaryOutputs": [{ "path": "DotNetVuetify.csproj" }],
