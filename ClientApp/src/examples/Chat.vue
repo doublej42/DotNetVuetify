@@ -59,8 +59,8 @@ export default {
       colors: ["red", "purple", "indigo", "blue", "cyan", "teal", "green"],
       messages: [],
       status: "Join a Channel"
-     // Some sample messages
-     // messages:
+      // Some sample messages
+      // messages:
       // [
       // {
       //     sender: "Jeff",
@@ -97,19 +97,12 @@ export default {
         this.status = "Join a Channel";
         return;
       }
-      axios
-        .get("https://httprelay.io/mcast/vueChat" + this.hashedRoom, {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        })
-        .then(response => {
-          //add the new message to the list of messages. Everything will react to this.
-          this.messages.push(response.data);
-          //start another pull looking for more data
-          this.fetchData();
-        });
+      axios.get("/api/relay/" + this.hashedRoom).then(response => {
+        //add the new message to the list of messages. Everything will react to this.
+        this.messages = response.data;
+        //start another pull looking for more data
+        setTimeout(this.fetchData,1000);
+      });
     },
     sendMessage: function() {
       if (this.status != "Joined: " + this.roomName) {
@@ -117,19 +110,11 @@ export default {
         this.status = "Join a Channel";
         return;
       }
-      axios.post(
-        "https://httprelay.io/mcast/vueChat" + this.hashedRoom,
-        {
-          sender: this.sender,
-          message: this.message
-        },
-        {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        }
-      );
+      axios.post("/api/relay", {
+        room: this.hashedRoom,
+        sender: this.sender,
+        message: this.message
+      });
       this.message = "";
     },
     hashCode: function(s) {

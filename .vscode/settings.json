@@ -3,5 +3,7 @@
         "Vuex",
         "jdebarochez",
         "transpilation"
-    ]
+    ],
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "bin/Release/netcoreapp3.0/publish"
 }
