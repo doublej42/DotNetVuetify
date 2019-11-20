@@ -101,6 +101,20 @@ Browse to [http://localhost:5000](http://localhost:5000) for ASP.&#8203;NET Core
 
 * Get Chrome DevTools for Vue.js [here](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 
+## Build Nuget Package
+```
+nuget pack
+```
+## Docker Support
+
+ * `docker build -t containerTag`
+ * `docker run -p 80:80 containerTag`
+
+if you want tp publish it 
+
+ * `docker push containerTag`
+
+
 ---
 
 ## Issues and Contribution
